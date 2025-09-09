@@ -2,97 +2,145 @@
 import { useState, useEffect } from "react";
 
 const HeroSection = () => {
-  const [currentImage, setCurrentImage] = useState(0);
+  const [currentSet, setCurrentSet] = useState(0);
   
-  const collectionImages = [
+  const productSets = [
     {
-      url: "https://images.unsplash.com/photo-1594633313593-bab3825d0caf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
-      title: "Floral Embroidery",
-      description: "Delicate hand-stitched florals"
+      main: "https://images.unsplash.com/photo-1594633313593-bab3825d0caf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      secondary: [
+        "https://images.unsplash.com/photo-1583391733956-6c78276477e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+        "https://images.unsplash.com/photo-1610030469983-98e550d6193c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+        "https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+      ],
+      title: "Floral Collection",
+      description: "Hand-embroidered florals • Starting ₹2,499"
     },
     {
-      url: "https://images.unsplash.com/photo-1583391733956-6c78276477e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
-      title: "Traditional Patterns",
-      description: "Heritage designs in modern cuts"
+      main: "https://images.unsplash.com/photo-1583391733956-6c78276477e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      secondary: [
+        "https://images.unsplash.com/photo-1594633313593-bab3825d0caf?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+        "https://images.unsplash.com/photo-1610030469983-98e550d6193c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+        "https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+      ],
+      title: "Traditional Wear",
+      description: "Classic patterns • Starting ₹1,899"
     },
     {
-      url: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
-      title: "Contemporary Elegance",
-      description: "Timeless artistry meets modern style"
+      main: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      secondary: [
+        "https://images.unsplash.com/photo-1594633313593-bab3825d0caf?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+        "https://images.unsplash.com/photo-1583391733956-6c78276477e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+        "https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+      ],
+      title: "Contemporary Line",
+      description: "Modern elegance • Starting ₹3,299"
     }
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % collectionImages.length);
-    }, 4000);
+      setCurrentSet((prev) => (prev + 1) % productSets.length);
+    }, 3000);
     return () => clearInterval(interval);
-  }, [collectionImages.length]);
+  }, [productSets.length]);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Dynamic Background Images */}
-      {collectionImages.map((image, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
-            index === currentImage ? 'opacity-30' : 'opacity-0'
-          }`}
-          style={{ backgroundImage: `url(${image.url})` }}
-        />
-      ))}
-      
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cream/90 via-sage/20 to-terracotta/30"></div>
-      
-      {/* Floating Embroidery Motifs */}
-      <div className="absolute top-20 left-10 w-32 h-32 border-2 border-gold/40 rounded-full animate-pulse">
-        <div className="absolute inset-4 border border-gold/20 rounded-full"></div>
-      </div>
-      <div className="absolute bottom-20 right-10 w-24 h-24 border-2 border-sage/50 rounded-full animate-pulse delay-1000">
-        <div className="absolute inset-3 border border-sage/30 rounded-full"></div>
-      </div>
-      <div className="absolute top-1/3 right-1/4 w-16 h-16 border border-terracotta/30 rounded-full animate-pulse delay-500"></div>
-      
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
-        <div className="animate-on-scroll">
-          <h1 className="font-display text-5xl md:text-7xl font-bold text-primary mb-6 leading-tight">
-            Wear Art,
-            <span className="block text-terracotta">Live Fabroidery</span>
-          </h1>
-        </div>
-        
-        <div className="animate-on-scroll" style={{ animationDelay: '0.2s' }}>
-          <p className="font-body text-xl md:text-2xl text-muted-foreground mb-4 max-w-2xl mx-auto">
-            Where every thread tells a story of heritage and every stitch whispers elegance
-          </p>
-          <p className="font-body text-lg text-primary/80 mb-8">
-            {collectionImages[currentImage].description}
-          </p>
-        </div>
-        
-        <div className="animate-on-scroll flex flex-col sm:flex-row gap-4 justify-center mb-8" style={{ animationDelay: '0.4s' }}>
-          <button className="embroidery-border bg-terracotta text-white px-8 py-4 rounded-full font-body font-semibold text-lg hover:bg-earth transform hover:scale-105 transition-all duration-300 shadow-lg">
-            Shop the Charm
-          </button>
-          <button className="border-2 border-primary text-primary px-8 py-4 rounded-full font-body font-semibold text-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300">
-            Our Story
-          </button>
-        </div>
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-cream via-sage/10 to-terracotta/5">
+      <div className="container mx-auto px-6 py-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
+          <div className="animate-on-scroll">
+            <h1 className="font-display text-4xl md:text-6xl font-bold text-primary mb-6 leading-tight">
+              Wear Art,
+              <span className="block text-terracotta">Live Fabroidery</span>
+            </h1>
+            <p className="font-body text-xl text-muted-foreground mb-6 max-w-lg">
+              Discover handcrafted kurtis where every thread tells a story of heritage and elegance
+            </p>
+            
+            {/* Current Collection Info */}
+            <div className="mb-8 animate-on-scroll" style={{ animationDelay: '0.2s' }}>
+              <h3 className="font-display text-2xl font-semibold text-primary mb-2">
+                {productSets[currentSet].title}
+              </h3>
+              <p className="font-body text-lg text-terracotta">
+                {productSets[currentSet].description}
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4 mb-8 animate-on-scroll" style={{ animationDelay: '0.4s' }}>
+              <button className="bg-terracotta text-white px-8 py-4 rounded-full font-body font-semibold text-lg hover:bg-earth transform hover:scale-105 transition-all duration-300 shadow-lg">
+                Shop Collection
+              </button>
+              <button className="border-2 border-primary text-primary px-8 py-4 rounded-full font-body font-semibold text-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+                View All
+              </button>
+            </div>
 
-        {/* Collection Indicators */}
-        <div className="flex justify-center space-x-2 animate-on-scroll" style={{ animationDelay: '0.6s' }}>
-          {collectionImages.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentImage(index)}
-              className={`w-3 h-3 rounded-full border-2 transition-all duration-300 ${
-                index === currentImage 
-                  ? 'bg-terracotta border-terracotta' 
-                  : 'border-primary/50 hover:border-primary'
-              }`}
-            />
-          ))}
+            {/* Collection Indicators */}
+            <div className="flex space-x-3 animate-on-scroll" style={{ animationDelay: '0.6s' }}>
+              {productSets.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSet(index)}
+                  className={`px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 ${
+                    index === currentSet 
+                      ? 'bg-terracotta text-white' 
+                      : 'border border-primary/30 text-primary hover:border-primary'
+                  }`}
+                >
+                  {index + 1}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Product Showcase Frame */}
+          <div className="relative animate-on-scroll" style={{ animationDelay: '0.3s' }}>
+            <div className="relative bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-gold/20 shadow-2xl">
+              {/* Main Product Image */}
+              <div className="relative mb-6 group">
+                <div className="aspect-[3/4] overflow-hidden rounded-2xl bg-gradient-to-br from-sage/20 to-terracotta/20">
+                  <img 
+                    src={productSets[currentSet].main}
+                    alt={productSets[currentSet].title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <div className="absolute -top-2 -right-2 bg-terracotta text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  New
+                </div>
+              </div>
+
+              {/* Secondary Product Images Grid */}
+              <div className="grid grid-cols-4 gap-3">
+                {productSets[currentSet].secondary.map((image, index) => (
+                  <div 
+                    key={index} 
+                    className="aspect-square overflow-hidden rounded-xl bg-gradient-to-br from-sage/10 to-cream hover:scale-110 transition-transform duration-300 cursor-pointer"
+                    style={{ 
+                      animationDelay: `${index * 0.1}s`,
+                      animation: 'fade-in 0.5s ease-out forwards'
+                    }}
+                  >
+                    <img 
+                      src={image}
+                      alt={`Product ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Floating Elements */}
+            <div className="absolute -top-4 -left-4 w-20 h-20 border-2 border-gold/30 rounded-full animate-pulse" />
+            <div className="absolute -bottom-4 -right-4 w-16 h-16 border-2 border-sage/40 rounded-full animate-pulse delay-1000" />
+          </div>
         </div>
       </div>
       
