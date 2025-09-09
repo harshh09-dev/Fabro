@@ -27,7 +27,7 @@ const Navigation = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="font-display text-2xl font-bold text-primary">
-            Artisan Kurtis
+            Needle & Soul
           </div>
           
           <div className="hidden md:flex space-x-8">
