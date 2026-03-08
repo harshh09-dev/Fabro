@@ -60,6 +60,7 @@ export const products: Product[] = [
     description: "Rich maroon silk kurti featuring royal Zardozi embroidery with gold metallic threadwork. A statement piece for special occasions.",
     embroideryDetails: "Zardozi gold thread embroidery with dabka and sequin detailing. Handcrafted in Agra.",
     fabricDetails: "Pure silk with cotton lining. Dry clean recommended.",
+    fabricType: "silk",
     sizes: ["S", "M", "L", "XL"],
     badge: "New Arrival",
     artisanId: "a2",
