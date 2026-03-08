@@ -167,6 +167,7 @@ export const products: Product[] = [
     description: "Soft sage green cotton kurti with Kantha stitch detailing across the yoke and sleeves.",
     embroideryDetails: "Fine Kantha running stitch in contrasting cream thread.",
     fabricDetails: "Organic cotton, enzyme-washed for softness.",
+    fabricType: "cotton",
     sizes: ["XS", "S", "M", "L", "XL"],
   },
   {
