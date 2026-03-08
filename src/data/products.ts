@@ -83,6 +83,7 @@ export const products: Product[] = [
     description: "Vibrant Phulkari dupatta in warm mustard, hand-embroidered by artisans from Punjab. A celebration of folk art traditions.",
     embroideryDetails: "Traditional Phulkari satin stitch covering the entire surface with geometric floral patterns.",
     fabricDetails: "Handwoven cotton base with silk embroidery thread.",
+    fabricType: "cotton",
     sizes: ["Free Size"],
     artisanId: "a3",
     isBestseller: true,
