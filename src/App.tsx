@@ -11,6 +11,13 @@ import Customize from "./pages/Customize";
 import Cart from "./pages/Cart";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Journal from "./pages/Journal";
+import JournalArticle from "./pages/JournalArticle";
+import ArtisanProfile from "./pages/ArtisanProfile";
+import Dashboard from "./pages/admin/Dashboard";
+import AdminProducts from "./pages/admin/Products";
+import AdminOrders from "./pages/admin/Orders";
+import AdminArtisans from "./pages/admin/Artisans";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +37,13 @@ const App = () => (
             <Route path="/cart" element={<Cart />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/journal" element={<Journal />} />
+            <Route path="/journal/:slug" element={<JournalArticle />} />
+            <Route path="/artisan/:id" element={<ArtisanProfile />} />
+            <Route path="/admin" element={<Dashboard />} />
+            <Route path="/admin/products" element={<AdminProducts />} />
+            <Route path="/admin/orders" element={<AdminOrders />} />
+            <Route path="/admin/artisans" element={<AdminArtisans />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
