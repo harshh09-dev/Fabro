@@ -1,32 +1,29 @@
-
 import { useEffect } from "react";
 import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import CollectionsGallery from "@/components/CollectionsGallery";
-import FeaturedProducts from "@/components/FeaturedProducts";
+import PhilosophySection from "@/components/PhilosophySection";
+import CollectionsSection from "@/components/CollectionsSection";
+import BestsellersSection from "@/components/BestsellersSection";
+import ArtisanSection from "@/components/ArtisanSection";
+import CustomPreviewSection from "@/components/CustomPreviewSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import CustomizationSection from "@/components/CustomizationSection";
-import ContactSection from "@/components/ContactSection";
+import GalleryGrid from "@/components/GalleryGrid";
+import NewsletterSection from "@/components/NewsletterSection";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   useEffect(() => {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
-        }
-      });
-    }, observerOptions);
-
-    const animateElements = document.querySelectorAll('.animate-on-scroll');
-    animateElements.forEach((el) => observer.observe(el));
-
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate");
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+    document.querySelectorAll(".animate-on-scroll").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
@@ -34,12 +31,15 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       <HeroSection />
-      <AboutSection />
-      <CollectionsGallery />
-      <FeaturedProducts />
+      <PhilosophySection />
+      <CollectionsSection />
+      <BestsellersSection />
+      <ArtisanSection />
+      <CustomPreviewSection />
       <TestimonialsSection />
-      <CustomizationSection />
-      <ContactSection />
+      <GalleryGrid />
+      <NewsletterSection />
+      <Footer />
     </div>
   );
 };
