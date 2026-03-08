@@ -9,6 +9,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import GalleryGrid from "@/components/GalleryGrid";
 import NewsletterSection from "@/components/NewsletterSection";
 import TrustBadges from "@/components/TrustBadges";
+import MeeshoTrustSection from "@/components/MeeshoTrustSection";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import MobileBottomNav from "@/components/MobileBottomNav";
@@ -40,12 +41,12 @@ const Index = () => {
       <CustomPreviewSection />
       <TestimonialsSection />
       <GalleryGrid />
-      {/* Trust section */}
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-6">
           <TrustBadges />
         </div>
       </section>
+      <MeeshoTrustSection />
       <NewsletterSection />
       <Footer />
       <MobileBottomNav />
