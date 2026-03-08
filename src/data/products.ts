@@ -37,6 +37,7 @@ export const products: Product[] = [
     description: "A timeless ivory kurti adorned with intricate Chikankari hand-embroidery from Lucknow. Each motif is carefully stitched by master artisans.",
     embroideryDetails: "Traditional Lucknowi Chikankari with shadow work and jaali patterns. Over 40 hours of hand-stitching.",
     fabricDetails: "Pure cotton mull, pre-washed for softness. Breathable and perfect for all seasons.",
+    fabricType: "cotton",
     sizes: ["XS", "S", "M", "L", "XL"],
     badge: "Bestseller",
     artisanId: "a1",
