@@ -125,6 +125,7 @@ export const products: Product[] = [
     description: "Classic indigo denim jeans with Kashmiri Kashida embroidery along the pockets and hem.",
     embroideryDetails: "Kashida chain stitch embroidery with floral motifs. Hand-embroidered in Kashmir.",
     fabricDetails: "Premium stretch denim, mid-rise relaxed fit.",
+    fabricType: "denim",
     sizes: ["28", "30", "32", "34", "36"],
     badge: "Limited Edition",
     artisanId: "a5",
