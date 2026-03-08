@@ -5,6 +5,7 @@ export interface Product {
   originalPrice?: number;
   category: 'kurtis' | 'shirts' | 'dupattas' | 'jeans' | 'accessories';
   embroideryType: 'chikankari' | 'kantha' | 'zardozi' | 'phulkari' | 'kashida';
+  fabricType: 'cotton' | 'linen' | 'silk' | 'denim';
   color: string;
   rating: number;
   reviews: number;
@@ -36,6 +37,7 @@ export const products: Product[] = [
     description: "A timeless ivory kurti adorned with intricate Chikankari hand-embroidery from Lucknow. Each motif is carefully stitched by master artisans.",
     embroideryDetails: "Traditional Lucknowi Chikankari with shadow work and jaali patterns. Over 40 hours of hand-stitching.",
     fabricDetails: "Pure cotton mull, pre-washed for softness. Breathable and perfect for all seasons.",
+    fabricType: "cotton",
     sizes: ["XS", "S", "M", "L", "XL"],
     badge: "Bestseller",
     artisanId: "a1",
@@ -58,6 +60,7 @@ export const products: Product[] = [
     description: "Rich maroon silk kurti featuring royal Zardozi embroidery with gold metallic threadwork. A statement piece for special occasions.",
     embroideryDetails: "Zardozi gold thread embroidery with dabka and sequin detailing. Handcrafted in Agra.",
     fabricDetails: "Pure silk with cotton lining. Dry clean recommended.",
+    fabricType: "silk",
     sizes: ["S", "M", "L", "XL"],
     badge: "New Arrival",
     artisanId: "a2",
@@ -80,6 +83,7 @@ export const products: Product[] = [
     description: "Vibrant Phulkari dupatta in warm mustard, hand-embroidered by artisans from Punjab. A celebration of folk art traditions.",
     embroideryDetails: "Traditional Phulkari satin stitch covering the entire surface with geometric floral patterns.",
     fabricDetails: "Handwoven cotton base with silk embroidery thread.",
+    fabricType: "cotton",
     sizes: ["Free Size"],
     artisanId: "a3",
     isBestseller: true,
@@ -101,6 +105,7 @@ export const products: Product[] = [
     description: "Crisp white linen shirt with delicate Kantha running stitch embroidery along the collar and cuffs.",
     embroideryDetails: "Bengal Kantha running stitch in indigo thread. Subtle yet distinctive craftsmanship.",
     fabricDetails: "Pure linen, machine washable. Pre-shrunk for consistent fit.",
+    fabricType: "linen",
     sizes: ["S", "M", "L", "XL", "XXL"],
     artisanId: "a4",
   },
@@ -120,6 +125,7 @@ export const products: Product[] = [
     description: "Classic indigo denim jeans with Kashmiri Kashida embroidery along the pockets and hem.",
     embroideryDetails: "Kashida chain stitch embroidery with floral motifs. Hand-embroidered in Kashmir.",
     fabricDetails: "Premium stretch denim, mid-rise relaxed fit.",
+    fabricType: "denim",
     sizes: ["28", "30", "32", "34", "36"],
     badge: "Limited Edition",
     artisanId: "a5",
@@ -141,6 +147,7 @@ export const products: Product[] = [
     description: "Elegant tote bag with Chikankari embroidery. Perfect for everyday use or gifting.",
     embroideryDetails: "Delicate Chikankari tepchi and bakhia stitches on cotton canvas.",
     fabricDetails: "12oz cotton canvas with reinforced handles. Fully lined interior.",
+    fabricType: "cotton",
     sizes: ["One Size"],
     isBestseller: true,
   },
@@ -160,6 +167,7 @@ export const products: Product[] = [
     description: "Soft sage green cotton kurti with Kantha stitch detailing across the yoke and sleeves.",
     embroideryDetails: "Fine Kantha running stitch in contrasting cream thread.",
     fabricDetails: "Organic cotton, enzyme-washed for softness.",
+    fabricType: "cotton",
     sizes: ["XS", "S", "M", "L", "XL"],
   },
   {
@@ -179,6 +187,7 @@ export const products: Product[] = [
     description: "Luxurious evening clutch with Zardozi embroidery. A perfect complement for festive occasions.",
     embroideryDetails: "Gold Zardozi embroidery with pearl and sequin embellishments.",
     fabricDetails: "Silk velvet exterior, satin lining with magnetic closure.",
+    fabricType: "silk",
     sizes: ["One Size"],
     badge: "Festive Pick",
   },

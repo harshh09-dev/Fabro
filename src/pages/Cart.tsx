@@ -44,7 +44,7 @@ const Cart = () => {
             {/* Items */}
             <div className="lg:col-span-2 space-y-6">
               {items.map((item) => (
-                <div key={item.product.id} className="flex gap-4 md:gap-6 border-b border-border pb-6">
+                <div key={`${item.product.id}-${item.size}`} className="flex gap-4 md:gap-6 border-b border-border pb-6">
                   <Link to={`/product/${item.product.id}`} className="w-24 md:w-32 aspect-[3/4] rounded-sm overflow-hidden flex-shrink-0">
                     <img src={item.product.images[0]} alt={item.product.name} className="w-full h-full object-cover" />
                   </Link>
@@ -99,11 +99,17 @@ const Cart = () => {
               </div>
 
               <div className="space-y-3">
+                <Link
+                  to="/checkout"
+                  className="flex items-center justify-center gap-2 w-full bg-primary text-primary-foreground py-4 font-body text-sm tracking-wider uppercase hover:opacity-90 transition-opacity btn-elevated"
+                >
+                  Proceed to Checkout
+                </Link>
                 <a
                   href={`https://wa.me/919876543210?text=${whatsappMsg}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full bg-primary text-primary-foreground py-4 font-body text-sm tracking-wider uppercase hover:opacity-90 transition-opacity"
+                  className="flex items-center justify-center gap-2 w-full border border-primary text-primary py-4 font-body text-sm tracking-wider uppercase hover:bg-primary/5 transition-colors"
                 >
                   <MessageCircle size={16} />
                   Order via WhatsApp (COD)
