@@ -44,7 +44,7 @@ const Cart = () => {
             {/* Items */}
             <div className="lg:col-span-2 space-y-6">
               {items.map((item) => (
-                <div key={item.product.id} className="flex gap-4 md:gap-6 border-b border-border pb-6">
+                <div key={`${item.product.id}-${item.size}`} className="flex gap-4 md:gap-6 border-b border-border pb-6">
                   <Link to={`/product/${item.product.id}`} className="w-24 md:w-32 aspect-[3/4] rounded-sm overflow-hidden flex-shrink-0">
                     <img src={item.product.images[0]} alt={item.product.name} className="w-full h-full object-cover" />
                   </Link>
