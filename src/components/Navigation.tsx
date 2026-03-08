@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ShoppingBag } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "@/context/CartContext";
 
 const Navigation = () => {
@@ -17,13 +18,14 @@ const Navigation = () => {
   const navLinks = [
     { label: "Shop", href: "/shop" },
     { label: "Customize", href: "/customize" },
+    { label: "Journal", href: "/journal" },
     { label: "Our Story", href: "/about" },
     { label: "Contact", href: "/contact" },
   ];
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+      className={`fixed top-0 w-full z-50 transition-all duration-700 ${
         isScrolled
           ? "bg-background/95 backdrop-blur-md shadow-sm"
           : "bg-transparent"
@@ -57,42 +59,61 @@ const Navigation = () => {
               <Link
                 key={link.href}
                 to={link.href}
-                className="font-body text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
+                className="font-body text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-500 relative group"
               >
                 {link.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-500 group-hover:w-full" />
               </Link>
             ))}
           </div>
 
           {/* Cart */}
-          <Link to="/cart" className="relative">
-            <ShoppingBag size={20} className="text-foreground" />
+          <Link to="/cart" className="relative group">
+            <ShoppingBag size={20} className="text-foreground transition-transform duration-300 group-hover:scale-110" />
             {totalItems > 0 && (
-              <span className="absolute -top-2 -right-2 w-4 h-4 bg-primary text-primary-foreground text-[10px] rounded-full flex items-center justify-center font-body font-medium">
+              <motion.span
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                className="absolute -top-2 -right-2 w-4 h-4 bg-primary text-primary-foreground text-[10px] rounded-full flex items-center justify-center font-body font-medium"
+              >
                 {totalItems}
-              </span>
+              </motion.span>
             )}
           </Link>
         </div>
       </div>
 
       {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="md:hidden bg-background/98 backdrop-blur-md border-t border-border">
-          <div className="container mx-auto px-6 py-8 flex flex-col gap-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="font-body text-lg text-foreground hover:text-primary transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="md:hidden bg-background/98 backdrop-blur-md border-t border-border overflow-hidden"
+          >
+            <div className="container mx-auto px-6 py-8 flex flex-col gap-6">
+              {navLinks.map((link, i) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.1, duration: 0.4 }}
+                >
+                  <Link
+                    to={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="font-body text-lg text-foreground hover:text-primary transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

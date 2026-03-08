@@ -8,8 +8,10 @@ import CustomPreviewSection from "@/components/CustomPreviewSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import GalleryGrid from "@/components/GalleryGrid";
 import NewsletterSection from "@/components/NewsletterSection";
+import TrustBadges from "@/components/TrustBadges";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import MobileBottomNav from "@/components/MobileBottomNav";
 
 const Index = () => {
   useEffect(() => {
@@ -28,7 +30,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-mobile-nav md:pb-0">
       <Navigation />
       <HeroSection />
       <PhilosophySection />
@@ -38,8 +40,15 @@ const Index = () => {
       <CustomPreviewSection />
       <TestimonialsSection />
       <GalleryGrid />
+      {/* Trust section */}
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-6">
+          <TrustBadges />
+        </div>
+      </section>
       <NewsletterSection />
       <Footer />
+      <MobileBottomNav />
     </div>
   );
 };

@@ -44,6 +44,8 @@
     --ivory: 40 33% 96%;
     --charcoal: 0 0% 15%;
     --warm-gray: 30 10% 55%;
+    --success: 152 60% 40%;
+    --warning: 38 92% 50%;
   }
 
   .dark {
@@ -188,4 +190,52 @@
 
 .btn-luxury:hover::after {
   @apply scale-x-100;
+}
+
+/* Luxury button elevation */
+.btn-elevated {
+  @apply transition-all duration-500 ease-out;
+  box-shadow: 0 2px 8px hsl(var(--foreground) / 0.06);
+}
+
+.btn-elevated:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px hsl(var(--foreground) / 0.12);
+}
+
+/* Page transition */
+.page-enter {
+  animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Parallax container */
+.parallax-slow {
+  will-change: transform;
+}
+
+/* Trust badge shimmer */
+.trust-shimmer {
+  background: linear-gradient(90deg, transparent, hsl(var(--gold-muted) / 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Mobile bottom nav safe area */
+.pb-mobile-nav {
+  padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
+}
+
+/* Admin sidebar */
+.admin-sidebar {
+  @apply bg-card border-r border-border;
+}
+
+/* Stepper line */
+.stepper-line {
+  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--gold-muted)));
 }
