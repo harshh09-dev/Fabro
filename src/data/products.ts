@@ -147,6 +147,7 @@ export const products: Product[] = [
     description: "Elegant tote bag with Chikankari embroidery. Perfect for everyday use or gifting.",
     embroideryDetails: "Delicate Chikankari tepchi and bakhia stitches on cotton canvas.",
     fabricDetails: "12oz cotton canvas with reinforced handles. Fully lined interior.",
+    fabricType: "cotton",
     sizes: ["One Size"],
     isBestseller: true,
   },
