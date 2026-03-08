@@ -187,6 +187,7 @@ export const products: Product[] = [
     description: "Luxurious evening clutch with Zardozi embroidery. A perfect complement for festive occasions.",
     embroideryDetails: "Gold Zardozi embroidery with pearl and sequin embellishments.",
     fabricDetails: "Silk velvet exterior, satin lining with magnetic closure.",
+    fabricType: "silk",
     sizes: ["One Size"],
     badge: "Festive Pick",
   },
