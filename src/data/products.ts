@@ -105,6 +105,7 @@ export const products: Product[] = [
     description: "Crisp white linen shirt with delicate Kantha running stitch embroidery along the collar and cuffs.",
     embroideryDetails: "Bengal Kantha running stitch in indigo thread. Subtle yet distinctive craftsmanship.",
     fabricDetails: "Pure linen, machine washable. Pre-shrunk for consistent fit.",
+    fabricType: "linen",
     sizes: ["S", "M", "L", "XL", "XXL"],
     artisanId: "a4",
   },
