@@ -5,6 +5,7 @@ export interface Product {
   originalPrice?: number;
   category: 'kurtis' | 'shirts' | 'dupattas' | 'jeans' | 'accessories';
   embroideryType: 'chikankari' | 'kantha' | 'zardozi' | 'phulkari' | 'kashida';
+  fabricType: 'cotton' | 'linen' | 'silk' | 'denim';
   color: string;
   rating: number;
   reviews: number;
