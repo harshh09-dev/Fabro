@@ -17,6 +17,9 @@ export interface Product {
   badge?: string;
   artisanId?: string;
   isBestseller?: boolean;
+  isTrending?: boolean;
+  isNewArrival?: boolean;
+  isOnSale?: boolean;
 }
 
 export const products: Product[] = [
