@@ -3,13 +3,18 @@ import HeroSection from "@/components/HeroSection";
 import PhilosophySection from "@/components/PhilosophySection";
 import CollectionsSection from "@/components/CollectionsSection";
 import BestsellersSection from "@/components/BestsellersSection";
+import TrendingSection from "@/components/TrendingSection";
+import NewArrivalsSection from "@/components/NewArrivalsSection";
 import ArtisanSection from "@/components/ArtisanSection";
 import CustomPreviewSection from "@/components/CustomPreviewSection";
+import CraftJourneySection from "@/components/CraftJourneySection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import OnSaleSection from "@/components/OnSaleSection";
 import GalleryGrid from "@/components/GalleryGrid";
-import NewsletterSection from "@/components/NewsletterSection";
 import TrustBadges from "@/components/TrustBadges";
 import MeeshoTrustSection from "@/components/MeeshoTrustSection";
+import ContactSection from "@/components/ContactSection";
+import NewsletterSection from "@/components/NewsletterSection";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import MobileBottomNav from "@/components/MobileBottomNav";
@@ -35,11 +40,15 @@ const Index = () => {
       <Navigation />
       <HeroSection />
       <PhilosophySection />
-      <CollectionsSection />
       <BestsellersSection />
+      <TrendingSection />
+      <CollectionsSection />
       <ArtisanSection />
       <CustomPreviewSection />
+      <NewArrivalsSection />
+      <CraftJourneySection />
       <TestimonialsSection />
+      <OnSaleSection />
       <GalleryGrid />
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-6">
@@ -47,6 +56,7 @@ const Index = () => {
         </div>
       </section>
       <MeeshoTrustSection />
+      <ContactSection />
       <NewsletterSection />
       <Footer />
       <MobileBottomNav />
