@@ -17,6 +17,9 @@ export interface Product {
   badge?: string;
   artisanId?: string;
   isBestseller?: boolean;
+  isTrending?: boolean;
+  isNewArrival?: boolean;
+  isOnSale?: boolean;
 }
 
 export const products: Product[] = [
@@ -42,6 +45,7 @@ export const products: Product[] = [
     badge: "Bestseller",
     artisanId: "a1",
     isBestseller: true,
+    isTrending: true,
   },
   {
     id: "2",
@@ -65,6 +69,7 @@ export const products: Product[] = [
     badge: "New Arrival",
     artisanId: "a2",
     isBestseller: true,
+    isNewArrival: true,
   },
   {
     id: "3",
@@ -87,6 +92,8 @@ export const products: Product[] = [
     sizes: ["Free Size"],
     artisanId: "a3",
     isBestseller: true,
+    isTrending: true,
+    isOnSale: true,
   },
   {
     id: "4",
@@ -108,6 +115,7 @@ export const products: Product[] = [
     fabricType: "linen",
     sizes: ["S", "M", "L", "XL", "XXL"],
     artisanId: "a4",
+    isNewArrival: true,
   },
   {
     id: "5",
@@ -129,6 +137,8 @@ export const products: Product[] = [
     sizes: ["28", "30", "32", "34", "36"],
     badge: "Limited Edition",
     artisanId: "a5",
+    isTrending: true,
+    isOnSale: true,
   },
   {
     id: "6",
@@ -150,6 +160,8 @@ export const products: Product[] = [
     fabricType: "cotton",
     sizes: ["One Size"],
     isBestseller: true,
+    isTrending: true,
+    isNewArrival: true,
   },
   {
     id: "7",
@@ -169,6 +181,8 @@ export const products: Product[] = [
     fabricDetails: "Organic cotton, enzyme-washed for softness.",
     fabricType: "cotton",
     sizes: ["XS", "S", "M", "L", "XL"],
+    isTrending: true,
+    isNewArrival: true,
   },
   {
     id: "8",
@@ -190,6 +204,9 @@ export const products: Product[] = [
     fabricType: "silk",
     sizes: ["One Size"],
     badge: "Festive Pick",
+    isOnSale: true,
+    isTrending: true,
+    isNewArrival: true,
   },
 ];
 
