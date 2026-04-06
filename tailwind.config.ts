@@ -63,8 +63,8 @@ export default {
         warning: 'hsl(var(--warning))',
       },
       fontFamily: {
-        'display': ['Playfair Display', 'serif'],
-        'body': ['DM Sans', 'sans-serif'],
+        'display': ['Cormorant Garamond', 'serif'],
+        'body': ['Inter', 'sans-serif'],
       },
       borderRadius: {
         lg: 'var(--radius)',
