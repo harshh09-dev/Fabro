@@ -10,90 +10,66 @@ const TestimonialsSection = () => {
   const activeTestimonials = activeTab === "india" ? indianTestimonials : internationalTestimonials;
 
   return (
-    <section className="py-24 md:py-32 texture-linen">
+    <section className="py-32 md:py-40">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-12 animate-on-scroll">
-          <div className="gold-line w-12 mx-auto mb-6" />
-          <p className="font-body text-xs tracking-[0.4em] uppercase text-muted-foreground mb-4">
-            WORDS FROM OUR COMMUNITY
+        <div className="text-center mb-16 animate-on-scroll">
+          <div className="section-divider mx-auto mb-8" />
+          <p className="font-body text-xs tracking-[0.5em] uppercase text-primary mb-4">
+            Social Proof
           </p>
-          <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground">
+          <h2 className="font-display text-4xl md:text-5xl font-light text-foreground">
             Voices of Appreciation
           </h2>
-          <p className="font-body text-sm text-muted-foreground mt-3 max-w-md mx-auto">
-            From India to around the world, customers share why they love FABRO
-          </p>
         </div>
 
         {/* Tabs */}
-        <div className="flex justify-center gap-1 mb-12">
+        <div className="flex justify-center gap-1 mb-14">
           <button
             onClick={() => setActiveTab("india")}
-            className={`px-6 py-3 font-body text-sm tracking-wider transition-all duration-300 ${
+            className={`px-8 py-3 font-body text-sm tracking-wider transition-all duration-500 ${
               activeTab === "india"
                 ? "bg-primary text-primary-foreground"
-                : "bg-card border border-border text-muted-foreground hover:text-foreground"
+                : "border border-border text-muted-foreground hover:text-foreground hover:border-primary/30"
             }`}
           >
-            From Our Hearts
+            From India
           </button>
           <button
             onClick={() => setActiveTab("international")}
-            className={`px-6 py-3 font-body text-sm tracking-wider transition-all duration-300 ${
+            className={`px-8 py-3 font-body text-sm tracking-wider transition-all duration-500 ${
               activeTab === "international"
                 ? "bg-primary text-primary-foreground"
-                : "bg-card border border-border text-muted-foreground hover:text-foreground"
+                : "border border-border text-muted-foreground hover:text-foreground hover:border-primary/30"
             }`}
           >
-            From Around the World
+            International
           </button>
         </div>
 
-        {/* Subtitle */}
-        <p className="text-center font-body text-xs text-muted-foreground mb-10">
-          {activeTab === "india"
-            ? "Voices from India celebrating heritage and craftsmanship"
-            : "International customers discovering the art of Indian embroidery"}
-        </p>
-
-        {/* Testimonial cards */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {activeTestimonials.map((t, i) => (
             <div
               key={t.id}
-              className="embroidery-border bg-background p-8 animate-on-scroll"
+              className="bg-card/50 border border-border/50 p-8 animate-on-scroll group hover:border-primary/20 transition-colors duration-500"
               style={{ animationDelay: `${0.15 * i}s` }}
             >
-              <Quote size={24} className="text-primary/30 mb-4" />
+              <Quote size={24} className="text-primary/20 mb-6" />
 
-              <blockquote className="font-body text-sm text-muted-foreground leading-relaxed mb-6">
+              <blockquote className="font-body text-sm text-muted-foreground leading-relaxed mb-8">
                 {t.text}
               </blockquote>
 
-              <div className="flex items-center gap-1 mb-3">
+              <div className="flex items-center gap-1 mb-4">
                 {Array.from({ length: t.rating }).map((_, idx) => (
-                  <Star key={idx} size={12} className="fill-gold-muted text-gold-muted" />
+                  <Star key={idx} size={12} className="fill-primary text-primary" />
                 ))}
               </div>
 
               <p className="font-display text-sm font-medium text-foreground">{t.name}</p>
               <p className="font-body text-xs text-muted-foreground">{t.role}</p>
-              <p className="font-body text-[10px] text-muted-foreground/70 mt-1">{t.location}</p>
+              <p className="font-body text-[10px] text-muted-foreground/50 mt-1">{t.location}</p>
             </div>
           ))}
-        </div>
-
-        {/* CTA */}
-        <div className="text-center mt-12 animate-on-scroll">
-          <p className="font-body text-sm text-muted-foreground mb-3">Have a FABRO story to share?</p>
-          <a
-            href="https://wa.me/918852808522?text=I%20want%20to%20share%20my%20FABRO%20story!"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block font-body text-sm tracking-wider text-primary border-b border-primary pb-1 hover:opacity-80 transition-opacity"
-          >
-            Share Your Story
-          </a>
         </div>
       </div>
     </section>

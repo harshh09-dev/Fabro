@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import HeroSection from "@/components/HeroSection";
-import PhilosophySection from "@/components/PhilosophySection";
 import CollectionsSection from "@/components/CollectionsSection";
 import BestsellersSection from "@/components/BestsellersSection";
 import TrendingSection from "@/components/TrendingSection";
-import NewArrivalsSection from "@/components/NewArrivalsSection";
-import ArtisanSection from "@/components/ArtisanSection";
 import CustomPreviewSection from "@/components/CustomPreviewSection";
+import PhilosophySection from "@/components/PhilosophySection";
+import ArtisanSection from "@/components/ArtisanSection";
+import NewArrivalsSection from "@/components/NewArrivalsSection";
 import CraftJourneySection from "@/components/CraftJourneySection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import OnSaleSection from "@/components/OnSaleSection";
@@ -38,26 +38,60 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background pb-mobile-nav md:pb-0">
       <Navigation />
+
+      {/* Hero — Full viewport, emotional */}
       <HeroSection />
-      <PhilosophySection />
-      <BestsellersSection />
-      <TrendingSection />
+
+      {/* Category Sections — Visual hierarchy */}
       <CollectionsSection />
-      <ArtisanSection />
+
+      {/* Featured Products — Curated grid */}
+      <BestsellersSection />
+
+      {/* Trending */}
+      <TrendingSection />
+
+      {/* Customization Section — Core USP */}
       <CustomPreviewSection />
+
+      {/* Brand Story — Minimal poetic */}
+      <PhilosophySection />
+
+      {/* Artisan Heritage */}
+      <ArtisanSection />
+
+      {/* New Arrivals */}
       <NewArrivalsSection />
+
+      {/* Craft Journey */}
       <CraftJourneySection />
+
+      {/* Testimonials / Social Proof */}
       <TestimonialsSection />
+
+      {/* Sale */}
       <OnSaleSection />
+
+      {/* Studio Gallery */}
       <GalleryGrid />
-      <section className="py-16 md:py-20">
+
+      {/* Trust Badges */}
+      <section className="py-20">
         <div className="container mx-auto px-6">
           <TrustBadges />
         </div>
       </section>
+
+      {/* Meesho Trust */}
       <MeeshoTrustSection />
+
+      {/* Contact */}
       <ContactSection />
+
+      {/* Newsletter */}
       <NewsletterSection />
+
+      {/* Footer */}
       <Footer />
       <MobileBottomNav />
     </div>
