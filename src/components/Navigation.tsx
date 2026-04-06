@@ -38,7 +38,9 @@ const Navigation = () => {
     <>
       <nav
         className={`fixed top-0 w-full z-50 transition-all duration-700 ${
-          isScrolled ? "bg-background/95 backdrop-blur-md shadow-sm" : "bg-transparent"
+          isScrolled
+            ? "bg-background/80 backdrop-blur-xl border-b border-border/50"
+            : "bg-transparent"
         }`}
       >
         <div className="container mx-auto px-6">
@@ -49,15 +51,14 @@ const Navigation = () => {
 
             <Link to="/" className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
               <div className="text-center md:text-left">
-                <h1 className="font-display text-xl md:text-2xl font-semibold tracking-wide text-foreground">FABRO</h1>
+                <h1 className="font-display text-xl md:text-2xl font-light tracking-[0.15em] text-foreground">FABRO</h1>
                 <p className="hidden md:block text-[9px] tracking-[0.3em] uppercase text-muted-foreground font-body">Handcrafted Embroidery</p>
               </div>
             </Link>
 
             <div className="hidden md:flex items-center gap-8">
-              {/* Shop dropdown */}
               <div className="relative" onMouseEnter={() => setShopOpen(true)} onMouseLeave={() => setShopOpen(false)}>
-                <Link to="/shop" className="font-body text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-500 relative group flex items-center gap-1">
+                <Link to="/shop" className="font-body text-sm tracking-wide text-muted-foreground hover:text-primary transition-colors duration-500 relative group flex items-center gap-1">
                   Shop
                   <ChevronDown size={12} className={`transition-transform duration-300 ${shopOpen ? "rotate-180" : ""}`} />
                   <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-500 group-hover:w-full" />
@@ -69,13 +70,13 @@ const Navigation = () => {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 8 }}
                       transition={{ duration: 0.25 }}
-                      className="absolute top-full left-0 mt-2 bg-background/98 backdrop-blur-md border border-border shadow-lg py-3 min-w-[180px]"
+                      className="absolute top-full left-0 mt-2 bg-card/95 backdrop-blur-xl border border-border shadow-2xl py-3 min-w-[180px]"
                     >
-                      <Link to="/shop" className="block px-5 py-2 font-body text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors">
+                      <Link to="/shop" className="block px-5 py-2 font-body text-sm text-muted-foreground hover:text-primary hover:bg-muted/30 transition-colors">
                         All Products
                       </Link>
                       {collections.map((c) => (
-                        <Link key={c.href} to={c.href} className="block px-5 py-2 font-body text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors">
+                        <Link key={c.href} to={c.href} className="block px-5 py-2 font-body text-sm text-muted-foreground hover:text-primary hover:bg-muted/30 transition-colors">
                           {c.label}
                         </Link>
                       ))}
@@ -88,7 +89,7 @@ const Navigation = () => {
                 <Link
                   key={link.href}
                   to={link.href}
-                  className="font-body text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-500 relative group"
+                  className="font-body text-sm tracking-wide text-muted-foreground hover:text-primary transition-colors duration-500 relative group"
                 >
                   {link.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-500 group-hover:w-full" />
@@ -118,7 +119,7 @@ const Navigation = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="md:hidden bg-background/98 backdrop-blur-md border-t border-border overflow-hidden"
+              className="md:hidden bg-background/95 backdrop-blur-xl border-t border-border/50 overflow-hidden"
             >
               <div className="container mx-auto px-6 py-8 flex flex-col gap-4">
                 <p className="font-body text-xs tracking-wider uppercase text-muted-foreground">Shop</p>

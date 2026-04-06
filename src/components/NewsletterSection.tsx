@@ -13,16 +13,17 @@ const NewsletterSection = () => {
   };
 
   return (
-    <section className="py-24 md:py-32 texture-linen">
+    <section className="py-32 md:py-40">
       <div className="container mx-auto px-6">
         <div className="max-w-lg mx-auto text-center animate-on-scroll">
-          <p className="font-body text-xs tracking-[0.4em] uppercase text-muted-foreground mb-4">
+          <div className="section-divider mx-auto mb-8" />
+          <p className="font-body text-xs tracking-[0.5em] uppercase text-primary mb-4">
             Stay Connected
           </p>
-          <h2 className="font-display text-3xl font-medium text-foreground mb-4">
+          <h2 className="font-display text-3xl font-light text-foreground mb-4">
             The FABRO Journal
           </h2>
-          <p className="font-body text-sm text-muted-foreground mb-8">
+          <p className="font-body text-sm text-muted-foreground mb-10">
             Stories of craft, new collections, and artisan spotlights — delivered thoughtfully.
           </p>
 
@@ -38,11 +39,11 @@ const NewsletterSection = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Your email"
                 required
-                className="flex-1 bg-background border border-border px-4 py-3 font-body text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground/30 transition-colors"
+                className="flex-1 bg-card border border-border px-5 py-4 font-body text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors"
               />
               <button
                 type="submit"
-                className="bg-primary text-primary-foreground px-6 py-3 font-body text-sm tracking-wider uppercase hover:opacity-90 transition-opacity"
+                className="bg-primary text-primary-foreground px-8 py-4 font-body text-sm tracking-[0.2em] uppercase hover:opacity-90 transition-opacity"
               >
                 Subscribe
               </button>

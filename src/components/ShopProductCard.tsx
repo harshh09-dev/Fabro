@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { Star, Eye } from "lucide-react";
+import { Star, Eye, ShoppingBag, Heart } from "lucide-react";
 import { Product } from "@/data/products";
+import { useCart } from "@/context/CartContext";
 
 interface ShopProductCardProps {
   product: Product;
@@ -9,13 +10,15 @@ interface ShopProductCardProps {
 }
 
 const ShopProductCard = ({ product, index, onQuickView }: ShopProductCardProps) => {
+  const { addItem } = useCart();
+
   return (
     <div
       className="group animate-on-scroll"
       style={{ animationDelay: `${0.08 * index}s` }}
     >
       <Link to={`/product/${product.id}`}>
-        <div className="img-zoom aspect-[3/4] rounded-sm overflow-hidden mb-4 relative">
+        <div className="img-zoom aspect-[3/4] overflow-hidden mb-4 relative">
           <img
             src={product.images[0]}
             alt={product.name}
@@ -35,17 +38,36 @@ const ShopProductCard = ({ product, index, onQuickView }: ShopProductCardProps) 
               {product.badge}
             </span>
           )}
-          <div className="absolute inset-x-0 bottom-0 p-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+          {/* Hover overlay with actions */}
+          <div className="absolute inset-0 bg-background/40 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-3">
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                addItem(product, product.sizes[0]);
+              }}
+              className="w-10 h-10 bg-foreground/90 text-background rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors duration-300 transform translate-y-4 group-hover:translate-y-0"
+            >
+              <ShoppingBag size={14} />
+            </button>
             <button
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 onQuickView();
               }}
-              className="flex items-center justify-center gap-2 w-full bg-background/90 backdrop-blur-sm text-foreground font-body text-xs tracking-wider uppercase py-2.5 hover:bg-background transition-colors"
+              className="w-10 h-10 bg-foreground/90 text-background rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors duration-300 transform translate-y-4 group-hover:translate-y-0 delay-75"
             >
               <Eye size={14} />
-              Quick View
+            </button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+              }}
+              className="w-10 h-10 bg-foreground/90 text-background rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors duration-300 transform translate-y-4 group-hover:translate-y-0 delay-150"
+            >
+              <Heart size={14} />
             </button>
           </div>
         </div>
@@ -61,7 +83,7 @@ const ShopProductCard = ({ product, index, onQuickView }: ShopProductCardProps) 
             <Star
               key={idx}
               size={10}
-              className={idx < Math.floor(product.rating) ? "fill-gold-muted text-gold-muted" : "text-border"}
+              className={idx < Math.floor(product.rating) ? "fill-primary text-primary" : "text-border"}
             />
           ))}
           <span className="font-body text-[10px] text-muted-foreground ml-1">({product.reviews})</span>

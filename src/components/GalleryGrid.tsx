@@ -9,13 +9,13 @@ const galleryImages = [
 
 const GalleryGrid = () => {
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-32 md:py-40 bg-card/30">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-on-scroll">
-          <p className="font-body text-xs tracking-[0.4em] uppercase text-muted-foreground mb-4">
+          <p className="font-body text-xs tracking-[0.5em] uppercase text-primary mb-4">
             @fabro.craft
           </p>
-          <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground">
+          <h2 className="font-display text-4xl md:text-5xl font-light text-foreground">
             From Our Studio
           </h2>
         </div>
@@ -24,7 +24,7 @@ const GalleryGrid = () => {
           {galleryImages.map((img, i) => (
             <div
               key={i}
-              className="img-zoom aspect-square rounded-sm overflow-hidden animate-on-scroll"
+              className="img-zoom aspect-square overflow-hidden animate-on-scroll group"
               style={{ animationDelay: `${0.1 * i}s` }}
             >
               <img
@@ -33,6 +33,7 @@ const GalleryGrid = () => {
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
+              <div className="absolute inset-0 bg-background/20 group-hover:bg-background/0 transition-colors duration-500" />
             </div>
           ))}
         </div>

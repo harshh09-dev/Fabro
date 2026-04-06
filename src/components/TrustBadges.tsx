@@ -13,7 +13,7 @@ const TrustBadges = ({ compact = false }: { compact?: boolean }) => {
       <div className="flex flex-wrap gap-3">
         {badges.map((b) => (
           <div key={b.label} className="flex items-center gap-2 trust-shimmer px-3 py-2 border border-border rounded-sm">
-            <b.icon size={14} className="text-gold-muted" />
+            <b.icon size={14} className="text-primary" />
             <span className="font-body text-[10px] tracking-wider uppercase text-muted-foreground">{b.label}</span>
           </div>
         ))}
@@ -24,8 +24,8 @@ const TrustBadges = ({ compact = false }: { compact?: boolean }) => {
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
       {badges.map((b) => (
-        <div key={b.label} className="text-center trust-shimmer p-4 border border-border rounded-sm">
-          <b.icon size={24} className="text-gold-muted mx-auto mb-3" />
+        <div key={b.label} className="text-center trust-shimmer p-6 border border-border/50 group hover:border-primary/20 transition-colors duration-500">
+          <b.icon size={24} className="text-primary mx-auto mb-3" />
           <p className="font-body text-xs font-medium text-foreground mb-1">{b.label}</p>
           <p className="font-body text-[10px] text-muted-foreground">{b.desc}</p>
         </div>

@@ -1,26 +1,20 @@
 import { Link } from "react-router-dom";
-import { Star, Sparkles } from "lucide-react";
+import { Star } from "lucide-react";
 import { products } from "@/data/products";
 
 const NewArrivalsSection = () => {
   const newArrivals = products.filter((p) => p.isNewArrival).slice(0, 5);
 
   return (
-    <section className="py-24 md:py-32 texture-linen">
+    <section className="py-32 md:py-40 bg-card/30">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-on-scroll">
-          <div className="inline-flex items-center gap-2 mb-4">
-            <Sparkles size={14} className="text-primary" />
-            <p className="font-body text-xs tracking-[0.4em] uppercase text-muted-foreground">
-              Just Dropped
-            </p>
-          </div>
-          <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground">
+          <p className="font-body text-xs tracking-[0.5em] uppercase text-primary mb-4">
+            Just Dropped
+          </p>
+          <h2 className="font-display text-4xl md:text-5xl font-light text-foreground">
             Newly Launched
           </h2>
-          <p className="font-body text-sm text-muted-foreground mt-3 max-w-md mx-auto">
-            Fresh designs and latest arrivals from our artisan workshops
-          </p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-5 gap-5">
@@ -31,7 +25,7 @@ const NewArrivalsSection = () => {
               className="group animate-on-scroll"
               style={{ animationDelay: `${0.1 * i}s` }}
             >
-              <div className="img-zoom aspect-square rounded-sm overflow-hidden mb-3 relative">
+              <div className="img-zoom aspect-square overflow-hidden mb-3 relative">
                 <img
                   src={product.images[0]}
                   alt={product.name}
@@ -50,17 +44,11 @@ const NewArrivalsSection = () => {
               </h3>
               <div className="flex items-center gap-1 mt-1 mb-1">
                 {Array.from({ length: 5 }).map((_, idx) => (
-                  <Star
-                    key={idx}
-                    size={9}
-                    className={idx < Math.floor(product.rating) ? "fill-gold-muted text-gold-muted" : "text-border"}
-                  />
+                  <Star key={idx} size={9} className={idx < Math.floor(product.rating) ? "fill-primary text-primary" : "text-border"} />
                 ))}
                 <span className="font-body text-[10px] text-muted-foreground ml-1">({product.reviews})</span>
               </div>
-              <span className="font-body text-sm font-medium text-foreground">
-                ₹{product.price.toLocaleString()}
-              </span>
+              <span className="font-body text-sm font-medium text-foreground">₹{product.price.toLocaleString()}</span>
             </Link>
           ))}
         </div>
