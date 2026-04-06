@@ -46,7 +46,7 @@ const OnSaleSection = () => {
                       <button
                         onClick={(e) => {
                           e.preventDefault();
-                          addItem({ id: product.id, name: product.name, price: product.price, image: product.images[0], quantity: 1, size: product.sizes[0] });
+                          addItem(product, product.sizes[0]);
                         }}
                         className="w-11 h-11 bg-foreground/90 text-background rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors duration-300 transform translate-y-4 group-hover:translate-y-0"
                       >

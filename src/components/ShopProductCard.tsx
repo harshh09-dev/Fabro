@@ -44,7 +44,7 @@ const ShopProductCard = ({ product, index, onQuickView }: ShopProductCardProps) 
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                addItem({ id: product.id, name: product.name, price: product.price, image: product.images[0], quantity: 1, size: product.sizes[0] });
+                addItem(product, product.sizes[0]);
               }}
               className="w-10 h-10 bg-foreground/90 text-background rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors duration-300 transform translate-y-4 group-hover:translate-y-0"
             >
